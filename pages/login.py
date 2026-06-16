@@ -78,16 +78,17 @@ def login_page():
         ):
             response = supabase.auth.sign_in_with_oauth(
                 {
-                    "provider": "google"
+                    "provider": "google",
+            
                 }
             )
-
-            st.markdown(
-                f"""
-                <meta http-equiv="refresh" content="0; url={response.url}">
-                """,
-                unsafe_allow_html=True
-            )
+            st.write(response.url)
+            
+        st.page_link(
+        "pages/register.py",
+        label="Belum punya akun? Registrasi sekarang",
+        icon=None
+        )
 
 login_page()
     
