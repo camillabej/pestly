@@ -12,7 +12,7 @@ restore_login()
 # ==========================
 # PROTEKSI HALAMAN
 # ==========================
-if not st.session_state.get("logged_in") and not st.user.is_logged_in:
+if not st.session_state.get("logged_in"):
     st.switch_page("pages/login.py")
     st.stop()
 
@@ -63,14 +63,9 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ==========================
 # AMBIL DATA USER
 # ==========================
-if st.user.is_logged_in:
-    nama = st.user.name
-    email = getattr(st.user, "email", "Tidak tersedia")
-    foto = getattr(st.user, "picture", None)
-else:
-    nama = st.session_state.get("username", "User")
-    email = st.session_state.get("email", "Tidak tersedia")
-    foto = None
+nama = st.session_state.get("username", "User")
+email = st.session_state.get("email", "Tidak tersedia")
+foto = None
 
 inisial = "".join([w[0].upper() for w in nama.split()[:2]]) if nama else "U"
 
@@ -102,7 +97,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ==========================
 st.markdown('<div class="result-title">⚙️ Informasi Akun</div>', unsafe_allow_html=True)
 
-metode_login = "Google Account" if st.user.is_logged_in else "Akun Lokal"
+metode_login = "Supabase"
 
 st.markdown(f"""
 <div class="info-sub-card">
@@ -130,8 +125,5 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ==========================
 
 if st.button("🚪 Logout", use_container_width=True, key="logout_bottom"):
-        if st.user.is_logged_in:
-            st.logout()
-        else:
-            st.session_state.clear()
-        st.switch_page("main.py")
+    st.session_state.clear()
+    st.switch_page("main.py")

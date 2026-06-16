@@ -16,7 +16,7 @@ restore_login()
 # ==========================
 # PROTEKSI HALAMAN
 # ==========================
-if not st.session_state.get("logged_in") and not st.user.is_logged_in:
+if not st.session_state.get("logged_in"):
     st.switch_page("pages/login.py")
     st.stop()
 
@@ -64,11 +64,7 @@ col1, col2 = st.columns([8, 1])
 with col1:
     st.title("📋 Riwayat Deteksi")
 with col2:
-    if st.user.is_logged_in:
-        if st.button("🚪 Logout"):
-            st.logout()
-            st.switch_page("main.py")
-    elif st.session_state.get("logged_in", False):
+    if st.session_state.get("logged_in", False):
         if st.button("🚪 Logout"):
             st.session_state.clear()
             st.switch_page("main.py")
