@@ -122,6 +122,36 @@
   line-height: 1.6;
 }
 
+/* ==========================
+   LINK BUTTON (GOOGLE)
+========================== */
+
+.stLinkButton > a {
+  width: 100% !important;
+  min-height: 50px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 12px !important;
+
+  background: #ffffff !important;
+  color: #111827 !important;
+
+  font-weight: 700 !important;
+  text-decoration: none !important;
+
+  border: none !important;
+
+  transition: all 0.3s ease;
+}
+
+.stLinkButton > a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
 @media (max-width: 768px) {
 
     .block-container {
