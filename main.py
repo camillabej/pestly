@@ -8,6 +8,27 @@ st.set_page_config(
 )
 
 st.write(supabase.auth.get_session())
+
+query_params = st.query_params
+
+if "code" in query_params:
+    try:
+        code = query_params["code"]
+
+        response = supabase.auth.exchange_code_for_session({
+            "auth_code": code
+        })
+
+        if response.user:
+            st.session_state["logged_in"] = True
+            st.session_state["user"] = response.user
+            st.session_state["user_id"] = response.user.id
+            st.session_state["email"] = response.user.email
+
+            st.switch_page("pages/home.py")
+
+    except Exception as e:
+        st.error(f"OAuth Error: {e}")
 # Redirect ke Home jika sudah login
 if st.session_state.get("logged_in"):
     st.switch_page("pages/home.py")
