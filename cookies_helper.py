@@ -8,7 +8,10 @@ def get_cookies():
     if _cookies is None:
         _cookies = EncryptedCookieManager(
             prefix="pestly_",
-            password="password-rahasia-kamu"
+            password="pestly-secret-key"
         )
+
+    if not _cookies.ready():
+        return None
 
     return _cookies
