@@ -79,9 +79,7 @@ def login_page():
             response = supabase.auth.sign_in_with_oauth(
                 {
                     "provider": "google",
-                    "options": {
-                        "redirect_to": "https://pestly-deteksi-hama.streamlit.app"
-                    }
+            
                 }
             )
             st.write(response.url)
