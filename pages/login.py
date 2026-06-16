@@ -82,7 +82,12 @@ def login_page():
             
                 }
             )
-            st.write(response.url)
+        st.markdown(
+        f"""
+        <meta http-equiv="refresh" content="0; url={response.url}">
+        """,
+        unsafe_allow_html=True)
+
             
         st.page_link(
         "pages/register.py",
