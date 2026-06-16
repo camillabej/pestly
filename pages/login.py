@@ -82,7 +82,9 @@ def login_page():
             
                 }
             )
-            st.write(response.url)
+            st.markdown(
+            f'<script>window.location.href="{response.url}"</script>',
+            unsafe_allow_html=True)
             
         st.page_link(
         "pages/register.py",
