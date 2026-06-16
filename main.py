@@ -32,6 +32,7 @@ if "code" in query_params:
 
             if profile.data:
                 st.session_state["username"] = profile.data[0]["username"]
+                st.query_params.clear()
             else:
                 st.session_state["username"] = (
                     response.user.user_metadata.get("full_name")
