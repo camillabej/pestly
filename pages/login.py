@@ -72,22 +72,22 @@ def login_page():
             except Exception as e:
                     st.exception(e)
 
-if st.button(
-    "🔑 Login dengan Google",
-    use_container_width=True
-):
-    response = supabase.auth.sign_in_with_oauth(
-        {
-            "provider": "google"
-        }
-    )
+        if st.button(
+            "🔑 Login dengan Google",
+            use_container_width=True
+        ):
+            response = supabase.auth.sign_in_with_oauth(
+                {
+                    "provider": "google"
+                }
+            )
 
-    st.markdown(
-        f"""
-        <meta http-equiv="refresh" content="0; url={response.url}">
-        """,
-        unsafe_allow_html=True
-    )
+            st.markdown(
+                f"""
+                <meta http-equiv="refresh" content="0; url={response.url}">
+                """,
+                unsafe_allow_html=True
+            )
 
 login_page()
     
