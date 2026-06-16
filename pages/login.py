@@ -1,7 +1,7 @@
 ﻿import streamlit as st
 from supabase_client import supabase
 from cookies_helper import get_cookies
-from cookies_helper import get_cookies
+
 
 
 
@@ -12,6 +12,8 @@ st.set_page_config(
 )
 cookies = get_cookies()
 st.write("COOKIES =", cookies)
+if cookies:
+    st.write("ready =", cookies.ready())
 
 st.markdown("""
 <style>
