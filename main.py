@@ -7,7 +7,6 @@ st.set_page_config(
     layout="wide"
 )
 
-st.write(supabase.auth.get_session())
 
 query_params = st.query_params
 
