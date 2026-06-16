@@ -11,7 +11,7 @@ if st.session_state.get("logged_in"):
     st.switch_page("pages/home.py")
     
     
-if not st.user.is_logged_in:
+if not st.session_state.get("logged_in"):
     st.markdown("""
     <style>
     [data-testid="stSidebar"] {
