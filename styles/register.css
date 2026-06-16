@@ -1,0 +1,104 @@
+
+/* ==========================
+   REGISTER PAGE
+========================== */
+
+.stApp {
+  background: linear-gradient(
+    135deg,
+    #12091d,
+    #1f1030,
+    #111827
+  );
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.register-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.register-title {
+  color: white;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.register-subtitle {
+  color: #d8b4fe;
+  font-size: 16px;
+}
+
+/* ==========================
+   INPUT
+========================== */
+
+.stTextInput input {
+  background: #1f2937 !important;
+  color: white !important;
+
+  border: none !important;
+
+  border-radius: 12px !important;
+
+  height: 50px;
+}
+
+label {
+  color: white !important;
+}
+
+/* ==========================
+   SEMUA BUTTON
+========================== */
+
+.stButton > button,
+.stFormSubmitButton > button {
+
+  min-height: 50px !important;
+
+  border-radius: 12px !important;
+
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #a855f7
+  ) !important;
+
+  color: white !important;
+
+  font-weight: 700 !important;
+
+  border: none !important;
+
+  transition: all 0.3s ease;
+}
+
+.stButton > button:hover,
+.stFormSubmitButton > button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 20px rgba(
+    168,
+    85,
+    247,
+    0.4
+  );
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+  .register-title {
+    font-size: 36px;
+  }
+
+}

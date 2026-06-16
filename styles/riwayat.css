@@ -1,0 +1,345 @@
+/* ==========================
+   BACKGROUND
+========================== */
+
+.stApp {
+    background: linear-gradient(135deg, #210927 0%, #0b1020 50%, #111827 100%);
+}
+
+.stApp::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    filter: blur(220px);
+    opacity: 0.18;
+    top: -200px;
+    right: -150px;
+    z-index: -1;
+}
+
+.stApp::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #a855f7;
+    border-radius: 50%;
+    filter: blur(180px);
+    opacity: 0.12;
+    bottom: -150px;
+    left: -150px;
+    z-index: -1;
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+[data-testid="stSidebar"] {
+    background: rgba(17, 24, 39, 0.95);
+}
+
+[data-testid="stSidebar"] * {
+    color: white;
+}
+
+/* ==========================
+   TEXT
+========================== */
+
+h1, h2, h3 {
+    color: white !important;
+    font-weight: 800 !important;
+}
+
+p, label {
+    color: #e5e7eb !important;
+}
+
+/* ==========================
+   ALERT
+========================== */
+
+[data-testid="stAlert"] {
+    border-radius: 16px;
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.stButton > button {
+    background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 14px !important;
+    min-height: 55px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    transition: all 0.3s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+}
+
+/* ==========================
+   PAGE LINK SIDEBAR
+========================== */
+
+[data-testid="stPageLink"] {
+    border-radius: 12px;
+}
+
+/* ==========================
+   STAT CARD
+========================== */
+
+.stat-card {
+    background: rgba(20, 10, 35, 0.6);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #9d96b3;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* ==========================
+   EMPTY RESULT
+========================== */
+
+.empty-result {
+    background: rgba(17, 24, 39, 0.75);
+    border: 1px dashed rgba(168, 85, 247, 0.3);
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    color: #d1d5db;
+    font-size: 18px;
+}
+
+/* ==========================
+   HISTORY CARD
+========================== */
+
+.history-card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, .85), rgba(31, 41, 55, .65));
+    border: 1px solid rgba(168, 85, 247, .18);
+    border-radius: 22px;
+    padding: 18px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    
+}
+
+.history-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(192, 132, 252, .4);
+    box-shadow: 0 0 25px rgba(168, 85, 247, .25);
+}
+
+.history-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.history-card-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;        /* crop gambar agar pas */
+    border-radius: 12px;      /* sudut bulat */
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;      /* paksa selalu kotak */
+    background: rgba(168, 85, 247, .1);  /* fallback kalau gambar tidak ada */
+}
+
+.history-card-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.history-card-name {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.history-card-conf {
+    background: rgba(168, 85, 247, .2);
+    color: #c084fc;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.history-card-meta {
+    color: #9ca3af;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* ==========================
+   BADGE
+========================== */
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.badge-tinggi {
+    background: rgba(239, 68, 68, .15);
+    color: #ef4444;
+}
+
+.badge-sedang {
+    background: rgba(250, 204, 21, .15);
+    color: #facc15;
+}
+
+.badge-rendah {
+    background: rgba(34, 197, 94, .15);
+    color: #22c55e;
+}
+
+.badge-aman {
+    background: rgba(34, 197, 94, .2);
+    color: #4ade80;
+}
+
+/* ==========================
+   DETAIL DETEKSI
+========================== */
+
+.detail-card {
+    background: rgba(17, 24, 39, .8);
+    border: 1px solid rgba(168, 85, 247, .25);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    margin-top: 12px;
+}
+
+.riwayat-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 18px;
+    background: rgba(31, 41, 55, .55);
+    border-left: 5px solid transparent;
+}
+
+.riwayat-item:last-child {
+    margin-bottom: 0;
+}
+
+.severity-border-tinggi { border-left-color: #ef4444; }
+.severity-border-sedang { border-left-color: #facc15; }
+.severity-border-rendah { border-left-color: #22c55e; }
+
+.riwayat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    background: rgba(168, 85, 247, .15);
+    border: 1px solid rgba(168, 85, 247, .3);
+    flex-shrink: 0;
+}
+
+.riwayat-info {
+    flex: 1;
+}
+
+.riwayat-name {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.riwayat-percent {
+    color: #c084fc;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.confidence-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, .08);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.severity-desc {
+    color: #9ca3af;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+:root {
+    --sev-tinggi: #ef4444;
+    --sev-sedang: #facc15;
+    --sev-rendah: #22c55e;
+}
+
+/* ==========================
+   DIVIDER
+========================== */
+
+.riwayat-divider {
+    border: none;
+    border-top: 1px solid rgba(168, 85, 247, 0.1);
+    margin: 8px 0;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+    h1 { font-size: 32px !important; }
+
+    .history-card-name { font-size: 15px; }
+
+    .history-card-img {
+        width: 50px;
+        height: 50px;
+    }
+}

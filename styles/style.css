@@ -1,0 +1,115 @@
+/* ==========================
+   BACKGROUND
+========================== */
+
+.stApp {
+  background: linear-gradient(
+    135deg,
+    #210927 0%,
+    #0b1020 50%,
+    #111827 100%
+  );
+}
+
+.stApp::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: #8b5cf6;
+  border-radius: 50%;
+  filter: blur(220px);
+  opacity: 0.18;
+  top: -200px;
+  right: -150px;
+  z-index: -1;
+}
+
+.stApp::after {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: #a855f7;
+  border-radius: 50%;
+  filter: blur(180px);
+  opacity: 0.12;
+  bottom: -150px;
+  left: -150px;
+  z-index: -1;
+}
+
+/* HERO */
+
+.hero-section h1 {
+  font-size: 60px;
+  color: white;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  color: #c084fc;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.hero-desc {
+  color: #e5e7eb;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+
+/* BUTTON */
+
+.stButton > button {
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #a855f7
+  ) !important;
+
+  color: white !important;
+
+  border-radius: 14px !important;
+
+  border: none !important;
+
+  min-height: 55px !important;
+
+  width: 140px !important; /* ukuran sama */
+
+  font-size: 18px !important;
+
+  font-weight: 700 !important;
+
+  transition: all 0.3s ease;
+}
+
+.stButton > button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #c084fc
+  ) !important;
+}
+
+@media (max-width: 768px) {
+
+    .block-container {
+        max-width: 100%;
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 36px !important;
+    }
+
+    .stButton > button {
+        min-height: 50px !important;
+    }
+}

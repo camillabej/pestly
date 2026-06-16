@@ -1,0 +1,498 @@
+/* ==========================
+   BACKGROUND
+========================== */
+
+.stApp {
+    background: linear-gradient(
+        135deg,
+        #210927 0%,
+        #0b1020 50%,
+        #111827 100%
+    );
+}
+
+.stApp::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    filter: blur(220px);
+    opacity: .18;
+    top: -200px;
+    right: -150px;
+    z-index: -1;
+}
+
+.stApp::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #a855f7;
+    border-radius: 50%;
+    filter: blur(180px);
+    opacity: .12;
+    bottom: -150px;
+    left: -150px;
+    z-index: -1;
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+[data-testid="stSidebar"] {
+    background: rgba(17, 24, 39, 0.95);
+}
+
+[data-testid="stSidebar"] * {
+    color: white;
+}
+/* ==========================
+   TEXT
+========================== */
+
+h1,
+h2,
+h3 {
+    color: white !important;
+    font-weight: 800 !important;
+}
+
+p,
+label {
+    color: #e5e7eb !important;
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.stButton > button {
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #a855f7
+    ) !important;
+
+    color: white !important;
+
+    border: none !important;
+
+    border-radius: 14px !important;
+
+    min-height: 55px !important;
+
+    font-size: 16px !important;
+
+    font-weight: 700 !important;
+
+    transition: all .3s ease;
+}
+
+.stButton > button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 0 25px rgba(
+        168,
+        85,
+        247,
+        .45
+    );
+}
+
+/* ==========================
+   UPLOAD CARD
+========================== */
+
+.upload-card {
+
+    background: linear-gradient(
+        135deg,
+        rgba(17,24,39,.85),
+        rgba(31,41,55,.75)
+    );
+
+    border: 1px solid rgba(
+        168,
+        85,
+        247,
+        .25
+    );
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    backdrop-filter: blur(12px);
+}
+
+.feature-icon {
+
+    font-size: 70px;
+
+    margin-bottom: 15px;
+}
+
+.feature-title {
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.feature-desc {
+
+    color: #d1d5db;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+.highlight {
+    color: #c084fc;
+    font-weight: 700;
+}
+
+/* ==========================
+   RESULT TITLE
+========================== */
+
+.result-title {
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+/* ==========================
+   DETAIL CARD
+========================== */
+
+.detail-card {
+
+    background: rgba(
+        17,
+        24,
+        39,
+        .8
+    );
+
+    border: 1px solid rgba(
+        168,
+        85,
+        247,
+        .25
+    );
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    backdrop-filter: blur(12px);
+}
+
+
+
+
+/* ==========================
+   EMPTY RESULT
+========================== */
+
+.empty-result {
+
+    background: rgba(
+        17,
+        24,
+        39,
+        .75
+    );
+
+    border: 1px dashed rgba(
+        168,
+        85,
+        247,
+        .3
+    );
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    color: #d1d5db;
+
+    font-size: 18px;
+}
+
+/* ==========================
+   FILE UPLOADER
+========================== */
+
+[data-testid="stFileUploader"] {
+
+    background: rgba(
+        17,
+        24,
+        39,
+        .75
+    );
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(
+        168,
+        85,
+        247,
+        .2
+    );
+
+    padding: 15px;
+}
+
+/* ==========================
+   IMAGE
+========================== */
+
+img {
+    border-radius: 18px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:768px) {
+
+    .feature-title {
+        font-size: 24px;
+    }
+
+    .feature-icon {
+        font-size: 55px;
+    }
+
+    h1 {
+        font-size: 30px !important;
+    }
+}
+
+/* ==========================
+   SOURCE SELECTOR BUTTONS
+========================== */
+
+div[data-testid="column"] .stButton > button {
+    border: 2px solid transparent !important;
+    transition: all .25s ease;
+}
+
+div[data-testid="column"] .stButton > button:hover {
+    border-color: rgba(255, 255, 255, .3) !important;
+}
+
+:root {
+    --sev-tinggi: #ef4444;
+    --sev-sedang: #facc15;
+    --sev-rendah: #22c55e;
+}
+
+/* ==========================
+   DETAIL DETEKSI
+========================== */
+
+.riwayat-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px;
+
+    margin-bottom: 15px;
+
+    border-radius: 18px;
+
+    background: rgba(
+        31,
+        41,
+        55,
+        .55
+    );
+
+    border-left: 5px solid transparent;
+}
+
+/* WARNA RISIKO */
+
+.severity-border-tinggi {
+    border-left-color: #ef4444;
+}
+
+.severity-border-sedang {
+    border-left-color: #facc15;
+}
+
+.severity-border-rendah {
+    border-left-color: #22c55e;
+}
+
+/* ICON HAMA */
+
+.riwayat-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+    background: rgba(
+        168,
+        85,
+        247,
+        .15
+    );
+
+    border: 1px solid rgba(
+        168,
+        85,
+        247,
+        .3
+    );
+}
+
+/* INFO */
+
+.riwayat-info {
+    flex: 1;
+}
+
+.riwayat-name {
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    margin-bottom: 4px;
+}
+
+.riwayat-percent {
+
+    color: #c084fc;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+/* PROGRESS BAR */
+
+.confidence-bar {
+
+    width: 100%;
+
+    height: 10px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.confidence-fill {
+
+    height: 100%;
+
+    border-radius: 999px;
+
+    transition: .4s ease;
+}
+
+/* DESKRIPSI */
+
+.severity-desc {
+
+    color: #9ca3af;
+
+    font-size: 13px;
+
+    margin-top: 8px;
+}
+
+/* BADGE */
+
+.badge {
+
+    padding: 10px 16px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.badge-tinggi {
+    background: rgba(239,68,68,.15);
+    color: #ef4444;
+}
+
+.badge-sedang {
+    background: rgba(250,204,21,.15);
+    color: #facc15;
+}
+
+.badge-rendah {
+    background: rgba(34,197,94,.15);
+    color: #22c55e;
+}
+
+.preview-container {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 10px 0 20px 0;
+}
+
+.preview-image {
+    width: 640px !important;
+    border-radius: 18px;
+    object-fit: cover;
+    border: 1px solid rgba(168, 85, 247, .25);
+}

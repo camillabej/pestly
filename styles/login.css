@@ -1,0 +1,139 @@
+/* ==========================
+   LOGIN PAGE
+========================== */
+
+.stApp {
+  background: linear-gradient(
+    135deg,
+    #12091d,
+    #1f1030,
+    #111827
+  );
+}
+
+/* ==========================
+   LOGIN CARD
+========================== */
+
+.login-card {
+  background: rgba(17, 24, 39, 0.8);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  backdrop-filter: blur(15px);
+}
+
+/* ==========================
+   HEADER LOGIN
+========================== */
+
+.login-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-title {
+  width: 100%;
+  display: block;
+  text-align: center !important;
+  color: white;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.login-subtitle {
+  width: 100%;
+  display: block;
+  text-align: center !important;
+  color: #d8b4fe;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+/* ==========================
+   INPUT
+========================== */
+
+.stTextInput input {
+  background: #1f2937 !important;
+  color: white !important;
+  border-radius: 12px !important;
+  border: none !important;
+  height: 50px;
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.stButton > button {
+  width: 100% !important;
+  min-height: 50px !important;
+  border-radius: 12px !important;
+
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #a855f7
+  ) !important;
+
+  color: white !important;
+  font-weight: 700 !important;
+  border: none !important;
+
+  transition: all 0.3s ease;
+}
+
+.stButton > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+/* ==========================
+   FEATURE CARD
+========================== */
+
+.feature-card-login {
+  background: rgba(31, 41, 55, 0.7);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  padding: 18px;
+  margin-top: 15px;
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+.feature-card-login:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
+}
+
+.feature-card-login h3 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+.feature-card-login p {
+  color: #d1d5db;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+
+    .block-container {
+        max-width: 100%;
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 36px !important;
+    }
+
+    .stButton > button {
+        min-height: 50px !important;
+    }
+}
