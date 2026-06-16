@@ -87,11 +87,10 @@ def login_page():
 
             st.write(response.url)
                     
-    st.page_link(
-    "pages/register.py",
-                label="Belum punya akun? Registrasi sekarang",
-                icon=None
-                )
+st.page_link(
+"pages/register.py",
+label="Belum punya akun? Registrasi sekarang",
+icon=None)
 
 login_page()
     
