@@ -5,6 +5,8 @@ def restore_login():
     try:
         session = supabase.auth.get_session()
 
+        st.write("SESSION =", session)
+
         if session and session.session:
             user = session.session.user
 
@@ -13,12 +15,5 @@ def restore_login():
             st.session_state["user_id"] = user.id
             st.session_state["email"] = user.email
 
-            if "username" not in st.session_state:
-                st.session_state["username"] = (
-                    user.user_metadata.get("full_name")
-                    or user.user_metadata.get("name")
-                    or user.email
-                )
-
-    except Exception:
-        pass
+    except Exception as e:
+        st.write("ERROR =", e)
