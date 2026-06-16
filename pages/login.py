@@ -1,6 +1,6 @@
 ﻿import streamlit as st
 from supabase_client import supabase
-from cookies_helper import get_cookies
+
 
 
 
@@ -10,10 +10,7 @@ st.set_page_config(
     page_icon="🫛",
     layout="wide"
 )
-cookies = get_cookies()
-st.write("COOKIES =", cookies)
-if cookies:
-    st.write("ready =", cookies.ready())
+
 
 st.markdown("""
 <style>
@@ -65,15 +62,6 @@ def login_page():
                 st.session_state["access_token"] = auth.session.access_token
                 st.session_state["refresh_token"] = auth.session.refresh_token
 
-                cookies = get_cookies()
-                if cookies:
-                    cookies["logged_in"] = "true"
-                    cookies["username"] = username
-                    cookies["user_id"] = auth.user.id
-                    cookies["access_token"] = auth.session.access_token
-                    cookies["refresh_token"] = auth.session.refresh_token
-                    cookies.save()
-                    st.write("COOKIE SAVED")
 
                 st.success("Login berhasil")
                 st.switch_page("pages/home.py")

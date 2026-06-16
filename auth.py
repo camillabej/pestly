@@ -1,14 +1,24 @@
 ﻿import streamlit as st
-from cookies_helper import get_cookies
+from supabase_client import supabase
 
 def restore_login():
-    cookies = get_cookies()
-    st.write("COOKIES =", cookies)
+    try:
+        session = supabase.auth.get_session()
 
-    if not cookies:
-        return
+        if session and session.session:
+            user = session.session.user
 
-    if cookies.get("logged_in") == "true":
-        st.session_state["logged_in"] = True
-        st.session_state["username"] = cookies.get("username")
-        st.session_state["user_id"] = cookies.get("user_id")
+            st.session_state["logged_in"] = True
+            st.session_state["user"] = user
+            st.session_state["user_id"] = user.id
+            st.session_state["email"] = user.email
+
+            if "username" not in st.session_state:
+                st.session_state["username"] = (
+                    user.user_metadata.get("full_name")
+                    or user.user_metadata.get("name")
+                    or user.email
+                )
+
+    except Exception:
+        pass
