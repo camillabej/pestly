@@ -10,8 +10,7 @@ st.set_page_config(
 )
 
 restore_login()
-st.write("SESSION =", supabase.auth.get_session())
-st.write("LOGGED =", st.session_state.get("logged_in"))
+
 
 if not st.session_state.get("logged_in"):
     st.switch_page("pages/login.py")
