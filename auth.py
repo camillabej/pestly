@@ -3,6 +3,7 @@ from cookies_helper import get_cookies
 
 def restore_login():
     cookies = get_cookies()
+    st.write("COOKIES =", cookies)
 
     if not cookies:
         return
