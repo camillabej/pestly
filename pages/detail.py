@@ -1,13 +1,15 @@
 
 import streamlit as st
 from database import hapus_riwayat
+from auth import restore_login
+
 
 st.set_page_config(
     page_title="Detail Deteksi - Pestly",
     page_icon="🫛",
     layout="wide"
 )
-
+restore_login()
 # ==========================
 # LOAD CSS
 # ==========================
