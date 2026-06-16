@@ -1,5 +1,7 @@
 import streamlit as st
 from supabase_client import supabase
+from streamlit_local_storage import LocalStorage
+
 
 st.set_page_config(
     page_title="Pestly - Deteksi Hama Tanaman Daun Buncis Muda",
@@ -7,6 +9,9 @@ st.set_page_config(
     layout="wide"
 )
 
+localS = LocalStorage()
+
+st.write("LOCAL STORAGE =", localS)
 
 query_params = st.query_params
 
