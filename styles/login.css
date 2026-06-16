@@ -129,19 +129,16 @@
 .stLinkButton > a {
   width: 100% !important;
   min-height: 50px !important;
-
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
   border-radius: 12px !important;
 
-  background: #ffffff !important;
-  color: #111827 !important;
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #a855f7
+  ) !important;
 
+  color: white !important;
   font-weight: 700 !important;
-  text-decoration: none !important;
-
   border: none !important;
 
   transition: all 0.3s ease;
@@ -149,8 +146,10 @@
 
 .stLinkButton > a:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
 }
+
+
 
 @media (max-width: 768px) {
 
