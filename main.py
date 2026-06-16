@@ -1,4 +1,5 @@
 import streamlit as st
+from supabase_client import supabase
 
 st.set_page_config(
     page_title="Pestly - Deteksi Hama Tanaman Daun Buncis Muda",
@@ -6,6 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
+st.write(supabase.auth.get_session())
 # Redirect ke Home jika sudah login
 if st.session_state.get("logged_in"):
     st.switch_page("pages/home.py")
