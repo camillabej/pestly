@@ -84,20 +84,14 @@ def login_page():
                     }
                 }
             )
-            
 
-
-            st.markdown(
-                f"""
-                <meta http-equiv="refresh" content="0; url={response.url}">
-                """,
-                unsafe_allow_html=True)
-            
-        st.page_link(
-        "pages/register.py",
-        label="Belum punya akun? Registrasi sekarang",
-        icon=None
-        )
+            st.write(response.url)
+                    
+    st.page_link(
+    "pages/register.py",
+                label="Belum punya akun? Registrasi sekarang",
+                icon=None
+                )
 
 login_page()
     
