@@ -41,6 +41,8 @@ if "code" in query_params:
                 )
 
             st.switch_page("pages/home.py")
+    except Exception as e:
+        st.error(e)
 
 # Redirect ke Home jika sudah login
 if st.session_state.get("logged_in"):
