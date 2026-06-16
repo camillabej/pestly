@@ -69,28 +69,28 @@ def login_page():
 
                 st.success("Login berhasil")
                 st.switch_page("pages/home.py")
+                
             except Exception as e:
                     st.exception(e)
 
         
-            response = supabase.auth.sign_in_with_oauth(
-                {
-                    "provider": "google",
-            
-                }
-            )
-        st.link_button(
-            "🔑 Login dengan Google",
-            response.url,
-            use_container_width=True
-        )
-            
-        st.page_link(
-        "pages/register.py",
-        label="Belum punya akun? Registrasi sekarang",
-        icon=None
+        oauth_response = supabase.auth.sign_in_with_oauth(
+            {
+                "provider": "google"
+            }
         )
 
+        st.link_button(
+            "🔑 Login dengan Google",
+            oauth_response.url,
+            use_container_width=True
+        )
+
+        st.page_link(
+            "pages/register.py",
+            label="Belum punya akun? Registrasi sekarang",
+            icon=None
+        )
 login_page()
     
 
