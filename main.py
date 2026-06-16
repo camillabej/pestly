@@ -7,7 +7,7 @@ st.set_page_config(
 )
 
 # Redirect ke Home jika sudah login
-if st.user.is_logged_in:
+if st.session_state.get("logged_in"):
     st.switch_page("pages/home.py")
     
     
