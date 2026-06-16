@@ -76,12 +76,11 @@ def login_page():
             "🔑 Login dengan Google",
             use_container_width=True
         ):
-            st.write("TOMBOL GOOGLE DIKLIK")
             response = supabase.auth.sign_in_with_oauth(
                 {
                     "provider": "google",
                     "options": {
-                        "redirect_to": "http://localhost:8501/home"
+                        "redirect_to": "https://pestly-deteksi-hama.streamlit.app"
                     }
                 }
             )

@@ -116,7 +116,6 @@ with col2:
                     "email": email,
                     "password": password
                 })
-                st.write("AUTH RESPONSE:", auth_response)
                 user_id = auth_response.user.id
 
                 # SIMPAN PROFILE
