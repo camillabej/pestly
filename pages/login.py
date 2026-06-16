@@ -72,19 +72,18 @@ def login_page():
             except Exception as e:
                     st.exception(e)
 
-        if st.button(
-            "🔑 Login dengan Google",
-            use_container_width=True
-        ):
+        
             response = supabase.auth.sign_in_with_oauth(
                 {
                     "provider": "google",
             
                 }
             )
-            st.markdown(
-            f'<script>window.location.href="{response.url}"</script>',
-            unsafe_allow_html=True)
+        st.link_button(
+            "🔑 Login dengan Google",
+            response.url,
+            use_container_width=True
+        )
             
         st.page_link(
         "pages/register.py",
