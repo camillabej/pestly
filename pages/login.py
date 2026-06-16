@@ -68,6 +68,7 @@ def login_page():
                     cookies["access_token"] = auth.session.access_token
                     cookies["refresh_token"] = auth.session.refresh_token
                     cookies.save()
+                    st.write("COOKIE SAVED")
 
                 st.success("Login berhasil")
                 st.switch_page("pages/home.py")
