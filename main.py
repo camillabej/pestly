@@ -24,11 +24,24 @@ if "code" in query_params:
             st.session_state["user"] = response.user
             st.session_state["user_id"] = response.user.id
             st.session_state["email"] = response.user.email
+            profile = (
+                supabase.table("profiles")
+                .select("*")
+                .eq("email", response.user.email)
+                .execute()
+            )
+
+            if profile.data:
+                st.session_state["username"] = profile.data[0]["username"]
+            else:
+                st.session_state["username"] = (
+                    response.user.user_metadata.get("full_name")
+                    or response.user.user_metadata.get("name")
+                    or response.user.email
+                )
 
             st.switch_page("pages/home.py")
 
-    except Exception as e:
-        st.error(f"OAuth Error: {e}")
 # Redirect ke Home jika sudah login
 if st.session_state.get("logged_in"):
     st.switch_page("pages/home.py")
