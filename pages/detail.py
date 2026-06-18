@@ -133,6 +133,9 @@ items_html = ""
 for d in r["deteksi"]:
 
     label = d["label"]
+    if label == "Sehat":
+        d["severity_label"] = "Aman"
+        d["severity_class"] = "aman"
 
     if label.lower() == "belalang":
         icon = "🦗"

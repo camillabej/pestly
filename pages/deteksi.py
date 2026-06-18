@@ -98,7 +98,7 @@ SEVERITY_DESC = {
     "tinggi": "Segera lakukan penanganan",
     "sedang": "Perlu dipantau",
     "rendah": "Tidak terlalu mengkhawatirkan",
-    "aman": "Tidak ditemukan hama",
+    "aman": "Tanaman dalam kondisi baik",
 }
 
 def get_severity(conf):

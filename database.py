@@ -24,24 +24,31 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
     filename = f"{uuid.uuid4()}.jpg"
 
     # Upload ke bucket storage
-    db.storage.from_("hasil-deteksi").upload(
-        filename,
-        image_bytes,
-        {"content-type": "image/jpeg"}
-    )
+    try:
+        db.storage.from_("hasil-deteksi").upload(
+            filename,
+            image_bytes,
+            {"content-type": "image/jpeg"}
+        )
+    except Exception as e:
+        st.error(f"Gagal upload gambar: {e}")
+        return False   
 
     # Ambil URL publik
     image_url = db.storage.from_("hasil-deteksi").get_public_url(filename)
 
     # Simpan ke tabel riwayat
-    db.table("riwayat").insert({
-        "user_id": user_id,
-        "tanggal": tanggal,
-        "image_url": image_url,
-        "deteksi": deteksi_list
-    }).execute()
+    try:
+        db.table("riwayat").insert({
+            "user_id": user_id,
+            "tanggal": tanggal,
+            "image_url": image_url,
+            "deteksi": deteksi_list
+        }).execute()
+    except Exception as e:
+        st.error(f"Gagal menyimpan riwayat: {e}")
+        return False
 
-    return True
 
 
 def ambil_riwayat():

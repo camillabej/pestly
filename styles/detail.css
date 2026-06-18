@@ -194,6 +194,7 @@ label {
     --sev-tinggi: #ef4444;
     --sev-sedang: #facc15;
     --sev-rendah: #22c55e;
+    --sev-aman: #22c55e;
 }
 
 /* ==========================
@@ -235,6 +236,10 @@ label {
 }
 
 .severity-border-rendah {
+    border-left-color: #22c55e;
+}
+
+.severity-border-aman {
     border-left-color: #22c55e;
 }
 
@@ -361,6 +366,11 @@ label {
 }
 
 .badge-rendah {
+    background: rgba(34,197,94,.15);
+    color: #22c55e;
+}
+
+.badge-aman {
     background: rgba(34,197,94,.15);
     color: #22c55e;
 }

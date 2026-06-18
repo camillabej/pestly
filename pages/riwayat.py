@@ -165,18 +165,24 @@ else:
         "tinggi": "Segera lakukan penanganan",
         "sedang": "Perlu dipantau",
         "rendah": "Tidak terlalu mengkhawatirkan",
+        "aman": "Tanaman dalam kondisi baik"
     }
 
-    severity_order = {"tinggi": 3, "sedang": 2, "rendah": 1}
+    severity_order = {"tinggi": 3, "sedang": 2, "rendah": 1, "aman": 0}
     badge_color_map = {
         "tinggi": "#ef4444",
         "sedang": "#facc15",
         "rendah": "#22c55e",
+        "aman": "#22c55e",
     }
 
     # Filter dulu semua riwayat
     riwayat_filtered = []
     for r in riwayat:
+        for d in r["deteksi"]:
+            if d["label"] == "Sehat":
+                d["severity_label"] = "Aman"
+                d["severity_class"] = "aman"
         deteksi_tampil = [
             d for d in r["deteksi"]
             if (filter_hama == "Semua Hama" or d["label"] == filter_hama)
