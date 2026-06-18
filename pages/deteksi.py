@@ -236,13 +236,27 @@ if uploaded_file is not None:
             st.markdown(f'<div class="detail-card">{items_html}</div>', unsafe_allow_html=True)
 
         else:
+            healthy_conf = 95.0
+
             deteksi_list = [{
                 "label": "Sehat",
-                "conf": 1.0,
+                "conf": healthy_conf / 100,
                 "severity_label": "Aman",
                 "severity_class": "aman"
             }]
-            st.success("🌿 Tidak ditemukan hama. Daun terdeteksi sehat.")
+
+            st.markdown(f"""
+<div class="healthy-card">
+    <div class="healthy-icon">🌿</div>
+    <div class="healthy-title">Daun Sehat</div>
+        <div class="healthy-desc">
+                    Tidak ditemukan hama belalang maupun ulat pada gambar yang diperiksa.
+        </div>
+        <div class="healthy-conf">
+                    Confidence: {healthy_conf:.1f}%
+        </div>
+    </div>
+            """, unsafe_allow_html=True)
 
         # ==========================
         # SIMPAN KE DATABASE

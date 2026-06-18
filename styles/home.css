@@ -119,8 +119,8 @@ label {
 .welcome-banner {
     background: linear-gradient(
         135deg,
-        rgba(124,58,237,0.25),
-        rgba(168,85,247,0.08)
+        rgba(124, 58, 237, 0.251),
+        rgba(168, 85, 247, 0.078)
     );
 
     border: 1px solid rgba(
@@ -173,8 +173,8 @@ label {
 .feature-card {
     background: linear-gradient(
         135deg,
-        rgba(17, 24, 39, 0.85),
-        rgba(31, 41, 55, 0.75)
+        rgba(17, 24, 39, 0.851),
+        rgba(31, 41, 55, 0.749)
     );
 
     border: 1px solid rgba(

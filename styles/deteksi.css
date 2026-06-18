@@ -312,6 +312,7 @@ div[data-testid="column"] .stButton > button:hover {
     --sev-tinggi: #ef4444;
     --sev-sedang: #facc15;
     --sev-rendah: #22c55e;
+    --sev-aman: #22c55e;
 }
 
 /* ==========================
@@ -342,6 +343,41 @@ div[data-testid="column"] .stButton > button:hover {
     border-left: 5px solid transparent;
 }
 
+/* ==========================
+   HEALTHY CARD
+========================== */
+
+.healthy-card{
+    background: rgba(34,197,94,0.12);
+    border: 1px solid rgba(34,197,94,0.35);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.healthy-icon{
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.healthy-title{
+    font-size: 24px;
+    font-weight: 700;
+    color: #22c55e;
+}
+
+.healthy-desc{
+    margin-top: 10px;
+    color: #d1fae5;
+}
+
+.healthy-conf{
+    margin-top: 18px;
+    font-weight: 600;
+    color: #86efac;
+}
+
 /* WARNA RISIKO */
 
 .severity-border-tinggi {
@@ -353,6 +389,10 @@ div[data-testid="column"] .stButton > button:hover {
 }
 
 .severity-border-rendah {
+    border-left-color: #22c55e;
+}
+
+.severity-border-aman {
     border-left-color: #22c55e;
 }
 
@@ -483,6 +523,11 @@ div[data-testid="column"] .stButton > button:hover {
     color: #22c55e;
 }
 
+.badge-aman {
+    background: rgba(34,197,94,.15);
+    color: #22c55e;
+}
+
 .preview-container {
     display: flex !important;
     justify-content: center !important;
@@ -495,4 +540,28 @@ div[data-testid="column"] .stButton > button:hover {
     border-radius: 18px;
     object-fit: cover;
     border: 1px solid rgba(168, 85, 247, .25);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    .feature-card {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .feature-title {
+        font-size: 24px;
+    }
+
+    .feature-icon {
+        font-size: 50px;
+    }
+
+    h1 {
+        font-size: 32px !important;
+    }
 }

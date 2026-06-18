@@ -383,3 +383,27 @@ label {
 
     border-radius: 30px;
 }
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    .feature-card {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .feature-title {
+        font-size: 24px;
+    }
+
+    .feature-icon {
+        font-size: 50px;
+    }
+
+    h1 {
+        font-size: 32px !important;
+    }
+}
