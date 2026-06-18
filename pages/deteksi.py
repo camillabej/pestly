@@ -98,6 +98,7 @@ SEVERITY_DESC = {
     "tinggi": "Segera lakukan penanganan",
     "sedang": "Perlu dipantau",
     "rendah": "Tidak terlalu mengkhawatirkan",
+    "aman": "Tidak ditemukan hama",
 }
 
 def get_severity(conf):
@@ -206,7 +207,12 @@ if uploaded_file is not None:
                 conf = float(box.conf[0])
                 label_raw = model.names[cls_id]
                 label = LABEL_MAP.get(label_raw.lower(), label_raw.capitalize())
-                severity_label, severity_class = get_severity(conf)
+
+                if label.lower() == "sehat":
+                    severity_label = "Aman"
+                    severity_class = "aman"
+                else:
+                    severity_label, severity_class = get_severity(conf)
 
                 deteksi_list.append({
                     "label": label,
