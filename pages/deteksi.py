@@ -196,7 +196,6 @@ if uploaded_file is not None:
         # DAFTAR DETEKSI
         # ==========================
         boxes = result.boxes
-        st.write("Jumlah box:", len(boxes))
         deteksi_list = []
 
         if boxes is not None and len(boxes) > 0:
