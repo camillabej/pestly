@@ -22,7 +22,7 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
     db = get_db()
 
     # Folder berdasarkan tanggal
-    folder = datetime.now().strftime("%Y-%m-%d")
+    folder = "test"
 
     # Nama file unik
     filename = f"{uuid.uuid4()}.jpg"
