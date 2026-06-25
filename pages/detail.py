@@ -10,9 +10,8 @@ st.set_page_config(
     layout="wide"
 )
 restore_login()
-# ==========================
+
 # LOAD CSS
-# ==========================
 def load_css():
     with open("styles/detail.css", encoding="utf-8") as f:
         st.markdown(
@@ -30,9 +29,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ==========================
+
 # SIDEBAR
-# ==========================
 with st.sidebar:
 
     st.markdown("""
@@ -75,24 +73,19 @@ with st.sidebar:
         icon="🚪"
     )
 
-# ==========================
 # PROTEKSI HALAMAN
-# ==========================
 if not st.session_state.get("logged_in", False):
     st.switch_page("pages/login.py")
     st.stop()
 
-# ==========================
-# AMBIL DATA DETAIL
-# ==========================
+
+# MENGAMBIL DATA DETAIL
 r = st.session_state.get("detail_riwayat")
 
 if not r:
     st.switch_page("pages/riwayat.py")
 
-# ==========================
 # HEADER
-# ==========================
 st.title("📋 Detail Deteksi")
 
 st.markdown(
@@ -101,9 +94,8 @@ st.markdown(
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ==========================
+
 # GAMBAR HASIL DETEKSI
-# ==========================
 if r.get("image_url"):
 
     st.markdown(
@@ -117,10 +109,9 @@ if r.get("image_url"):
         """,
         unsafe_allow_html=True
     )
-# ==========================
-# DETAIL HAMA
-# ==========================
 
+
+# DETAIL HAMA
 SEVERITY_DESC = {
     "tinggi": "Segera lakukan penanganan",
     "sedang": "Perlu dipantau",
@@ -181,9 +172,8 @@ st.markdown(
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ==========================
-# TOMBOL AKSI
-# ==========================
+
+# TOMBOL BUTTON YANG ADA DI DETAIL
 col1, col2 = st.columns(2)
 
 with col1:

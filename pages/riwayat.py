@@ -13,16 +13,14 @@ st.set_page_config(
 )
 restore_login()
 
-# ==========================
+
 # PROTEKSI HALAMAN
-# ==========================
 if not st.session_state.get("logged_in"):
     st.switch_page("pages/login.py")
     st.stop()
 
-# ==========================
+
 # LOAD CSS
-# ==========================
 def load_css():
     with open("styles/riwayat.css", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -35,9 +33,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ==========================
+
 # SIDEBAR
-# ==========================
 with st.sidebar:
     st.markdown("""
     <div class="sidebar-logo">🫛</div>
@@ -57,9 +54,8 @@ with st.sidebar:
 
 
 
-# ==========================
+
 # HEADER
-# ==========================
 col1, col2 = st.columns([8, 1])
 with col1:
     st.title("📋 Riwayat Deteksi")
@@ -71,14 +67,12 @@ with col2:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ==========================
+
 # AMBIL DATA RIWAYAT
-# ==========================
 riwayat = ambil_riwayat()
 
-# ==========================
+
 # STATISTIK
-# ==========================
 total = len(riwayat)
 total_sehat = sum(
     1 for r in riwayat for d in r["deteksi"] if d["label"] == "Sehat"
@@ -143,11 +137,8 @@ with col_filter2:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ==========================
-# DAFTAR RIWAYAT
-# ==========================
-import base64
 
+# DAFTAR RIWAYAT
 import base64
 
 def get_icon_base64():
@@ -198,7 +189,7 @@ else:
         </div>
         """, unsafe_allow_html=True)
     else:
-        # Tampilkan 2 card per baris
+        # MENAMPILKAN HASIL DIWAYAT 2 CARD PER BARIS
         for row_start in range(0, len(riwayat_filtered), 2):
             cols = st.columns(2)
             for col_idx, (r, deteksi_tampil) in enumerate(riwayat_filtered[row_start:row_start+2]):

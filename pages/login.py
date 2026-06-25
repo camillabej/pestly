@@ -1,10 +1,6 @@
 ﻿import streamlit as st
 from supabase_client import supabase
 
-
-
-
-
 st.set_page_config(
     page_title="Pestly - Deteksi Hama Tanaman Daun Buncis Muda",
     page_icon="🫛",

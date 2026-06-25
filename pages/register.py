@@ -9,9 +9,8 @@ st.set_page_config(
     layout="wide"
 )
 
-# ==========================
+
 # SEMBUNYIKAN SIDEBAR
-# ==========================
 st.markdown("""
 <style>
 section[data-testid="stSidebar"]{
@@ -23,24 +22,21 @@ section[data-testid="stSidebar"]{
 </style>
 """, unsafe_allow_html=True)
 
-# ==========================
+
 # LOAD CSS
-# ==========================
 with open("styles/register.css", encoding="utf-8") as f:
     st.markdown(
         f"<style>{f.read()}</style>",
         unsafe_allow_html=True
     )
 
-# ==========================
+
 # BUTTON KEMBALI
-# ==========================
 if st.button("⬅️ Kembali"):
     st.switch_page("main.py")
 
-# ==========================
+
 # REGISTER PAGE
-# ==========================
 col1, col2, col3 = st.columns([1,2,1])
 
 with col2:

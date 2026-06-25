@@ -91,10 +91,6 @@ st.markdown(f"""
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ==========================
-# AKSI AKUN
-# ==========================
-
 if st.button("🚪 Logout", use_container_width=True, key="logout_bottom"):
     st.session_state.clear()
     st.switch_page("main.py")

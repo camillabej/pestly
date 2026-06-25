@@ -18,9 +18,8 @@ restore_login()
 
 init_db()
 
-# ==========================
+
 # LOAD CSS
-# ==========================
 def load_css():
     with open("styles/deteksi.css", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -33,9 +32,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ==========================
 # SIDEBAR
-# ==========================
 with st.sidebar:
     st.markdown("""
     <div class="sidebar-logo">🫛</div>
@@ -53,16 +50,14 @@ with st.sidebar:
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.page_link("pages/logout.py", label="Logout", icon="🚪")
 
-# ==========================
+
 # PROTEKSI HALAMAN
-# ==========================
 if not st.session_state.get("logged_in"):
     st.switch_page("pages/login.py")
     st.stop()
 
-# ==========================
+
 # HEADER
-# ==========================
 col1, col2 = st.columns([8, 1])
 with col1:
     st.title("📸 Deteksi Hama")
@@ -74,9 +69,8 @@ with col2:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ==========================
-# LOAD MODEL (cached)
-# ==========================
+
+# LOAD MODEL YOLO DENGAN MENGAMBIL DARI FILE BEST.PT
 @st.cache_resource
 def load_model():
     return YOLO("model/best.pt")
@@ -109,9 +103,8 @@ def get_severity(conf):
     else:
         return "Rendah", "rendah"
 
-# ==========================
-# UPLOAD GAMBAR
-# ==========================
+
+# INFORMASI TENTANG UPLOAD GAMBAR
 st.markdown("""
 <div class="upload-card">
 <div class="feature-icon">📷</div>
@@ -122,9 +115,8 @@ Upload gambar daun buncis muda untuk mendeteksi hama belalang dan ulat menggunak
 </div>
 """, unsafe_allow_html=True)
 
-# ==========================
-# PILIH SUMBER GAMBAR
-# ==========================
+
+# MEMILIH SUMBER GAMBAR YANG DIGUNAKAN
 if "source_mode" not in st.session_state:
     st.session_state["source_mode"] = None
 
@@ -178,9 +170,9 @@ if uploaded_file is not None:
             st.markdown('<div class="result-title">📥 Gambar Input</div>', unsafe_allow_html=True)
             st.image(image, use_container_width=True)
 
-        # ==========================
-        # JALANKAN DETEKSI
-        # ==========================
+
+        # MENJALANKAN DETEKSI
+
         with st.spinner("🔍 Mendeteksi hama..."):
             results = model.predict(image, conf=0.40, iou=0.35, agnostic_nms=True, verbose=False)
             result = results[0]
@@ -193,9 +185,8 @@ if uploaded_file is not None:
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # ==========================
-        # DAFTAR DETEKSI
-        # ==========================
+
+        # AKAN DISIMPAN DI RIWAYAT DAN MENAMPILKAN DETAIL DETEKSI
         boxes = result.boxes
         deteksi_list = []
 
@@ -264,9 +255,9 @@ if uploaded_file is not None:
     </div>
             """, unsafe_allow_html=True)
 
-        # ==========================
+        
         # SIMPAN KE DATABASE
-        # ==========================
+        
         image_hash = hash(uploaded_file.getvalue())
 
         if st.session_state.get("last_saved_hash") != image_hash:
