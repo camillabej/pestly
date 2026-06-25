@@ -1,6 +1,5 @@
 import uuid
 import streamlit as st
-from datetime import datetime
 from supabase_client import supabase
 
 
@@ -21,20 +20,17 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
 
     db = get_db()
 
-    # Folder berdasarkan tanggal
-    folder = datetime.now().strftime("%Y-%m-%d")
-    st.write(folder)
+
 
     # Nama file unik
     filename = f"{uuid.uuid4()}.jpg"
 
-    # Path lengkap file
-    filepath = f"{folder}/{filename}"
+
 
     # Upload ke bucket storage
     try:
         db.storage.from_("hasil-deteksi").upload(
-            filepath,
+            filename,
             image_bytes,
             {"content-type": "image/jpeg"}
         )
@@ -43,7 +39,7 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
         return False   
 
     # Ambil URL publik
-    image_url = db.storage.from_("hasil-deteksi").get_public_url(filepath)
+    image_url = db.storage.from_("hasil-deteksi").get_public_url(filename)
 
     # Simpan ke tabel riwayat
     try:
@@ -53,6 +49,7 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
             "image_url": image_url,
             "deteksi": deteksi_list
         }).execute()
+        return True
     except Exception as e:
         st.error(f"Gagal menyimpan riwayat: {e}")
         return False
@@ -74,13 +71,13 @@ def ambil_riwayat():
         .order("id", desc=True)
         .execute()
     )
-
+    
     return response.data if response.data else []
 
 
 def hapus_riwayat(id):
     db = get_db()
-
+    
     db.table("riwayat") \
         .delete() \
         .eq("id", id) \
