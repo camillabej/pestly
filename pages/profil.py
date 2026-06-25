@@ -91,35 +91,6 @@ st.markdown(f"""
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-
-# ==========================
-# INFORMASI AKUN
-# ==========================
-st.markdown('<div class="result-title">⚙️ Informasi Akun</div>', unsafe_allow_html=True)
-
-metode_login = "Supabase"
-
-st.markdown(f"""
-<div class="info-sub-card">
-    <table class="profile-table">
-        <tr>
-            <td>Nama</td>
-            <td>{nama}</td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td>{email}</td>
-        </tr>
-        <tr>
-            <td>Metode Login</td>
-            <td>{metode_login}</td>
-        </tr>
-    </table>
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown("<br>", unsafe_allow_html=True)
-
 # ==========================
 # AKSI AKUN
 # ==========================
