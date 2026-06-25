@@ -21,19 +21,19 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
 
     db = get_db()
 
-    # Nama file unik
-    filename = f"{uuid.uuid4()}.jpg"
-    
-    # Path lengkap file
-    filepath = f"{folder}/{filename}"
-    
     # Folder berdasarkan tanggal
     folder = datetime.now().strftime("%Y-%m-%d")
+
+    # Nama file unik
+    filename = f"{uuid.uuid4()}.jpg"
+
+    # Path lengkap file
+    filepath = f"{folder}/{filename}"
 
     # Upload ke bucket storage
     try:
         db.storage.from_("hasil-deteksi").upload(
-            filename,
+            filepath,
             image_bytes,
             {"content-type": "image/jpeg"}
         )
