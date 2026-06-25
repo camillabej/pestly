@@ -1,5 +1,6 @@
 import uuid
 import streamlit as st
+from datetime import datetime
 from supabase_client import supabase
 
 
@@ -22,6 +23,12 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
 
     # Nama file unik
     filename = f"{uuid.uuid4()}.jpg"
+    
+    # Path lengkap file
+    filepath = f"{folder}/{filename}"
+    
+    # Folder berdasarkan tanggal
+    folder = datetime.now().strftime("%Y-%m-%d")
 
     # Upload ke bucket storage
     try:
@@ -35,7 +42,7 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
         return False   
 
     # Ambil URL publik
-    image_url = db.storage.from_("hasil-deteksi").get_public_url(filename)
+    image_url = db.storage.from_("hasil-deteksi").get_public_url(filepath)
 
     # Simpan ke tabel riwayat
     try:
