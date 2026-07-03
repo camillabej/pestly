@@ -196,7 +196,7 @@ else:
                 idx = riwayat.index(r)
                 hama_utama = deteksi_tampil[0]
                 icon_b64 = get_icon_base64()
-                nama_list = ", ".join(d["label"] for d in deteksi_tampil)
+                nama_list = r["nama_file"]
                 conf_avg = sum(d["conf"] for d in deteksi_tampil) / len(deteksi_tampil)
                 hama_tertinggi = max(deteksi_tampil, key=lambda d: severity_order.get(d["severity_class"], 0))
                 badge_color = badge_color_map.get(hama_tertinggi["severity_class"], "#9ca3af")

@@ -12,7 +12,7 @@ def init_db():
     pass
 
 
-def simpan_riwayat(tanggal, image_bytes, deteksi_list):
+def simpan_riwayat(tanggal, nama_file, image_bytes, deteksi_list):
 
     user_id = st.session_state.get("user_id")
 
@@ -49,6 +49,7 @@ def simpan_riwayat(tanggal, image_bytes, deteksi_list):
         db.table("riwayat").insert({
             "user_id": user_id,
             "tanggal": tanggal,
+            "nama_file": nama_file,
             "image_url": image_url,
             "deteksi": deteksi_list
         }).execute()
