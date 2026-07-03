@@ -1,6 +1,7 @@
 import streamlit as st
 import base64
 import io
+import uuid
 from ultralytics import YOLO
 from PIL import Image
 from datetime import datetime
@@ -124,6 +125,7 @@ col_a, col_b = st.columns(2)
 with col_a:
     if st.button("📁 Upload Gambar", use_container_width=True, type="primary" if st.session_state["source_mode"] == "upload" else "secondary"):
         st.session_state["source_mode"] = "upload"
+        
 with col_b:
     if st.button("📷 Buka Kamera", use_container_width=True, type="primary" if st.session_state["source_mode"] == "camera" else "secondary"):
         st.session_state["source_mode"] = "camera"
@@ -143,6 +145,11 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
+    # Menentukan nama file
+    if st.session_state["source_mode"] == "upload":
+        nama_file = uploaded_file.name
+    else:
+        nama_file = f"kamera_{uuid.uuid4().hex[:6]}.jpg"
 
     # Preview gambar input
     buf_prev = io.BytesIO()
