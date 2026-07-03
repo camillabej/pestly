@@ -34,7 +34,9 @@ def login_page():
         password = st.text_input("Password", type="password")
 
         if st.button("🚀 Login", use_container_width=True):
-            try:
+                if not username or not password:
+                    st.warning("Username dan password harus diisi.")
+                    return
                 profile = (
                     supabase.table("profiles")
                     .select("*")
@@ -42,15 +44,21 @@ def login_page():
                     .execute()
                 )
                 if not profile.data:
-                    st.error("Username tidak ditemukan")
-                    
-                    
-
+                    st.error("Username tidak ditemukan.")
+                    return
+                   
                 email = profile.data[0]["email"]
-                auth = supabase.auth.sign_in_with_password({
-                    "email": email,
-                    "password": password
-                })
+                
+                try:
+                    auth = supabase.auth.sign_in_with_password({
+                        "email": email,
+                        "password": password
+                    })
+                except Exception:
+                    st.error("Password yang Anda masukkan salah.")
+                    return
+                
+                
 
                 st.session_state["logged_in"] = True
                 st.session_state["user"] = auth.user
@@ -63,9 +71,6 @@ def login_page():
                 st.success("Login berhasil")
                 st.switch_page("pages/home.py")
                 
-            except Exception as e:
-                    st.exception(e)
-
         
         oauth_response = supabase.auth.sign_in_with_oauth(
             {
