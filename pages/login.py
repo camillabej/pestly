@@ -53,7 +53,7 @@ def login_page():
                     })
                 except Exception:
                     st.error("Password yang Anda masukkan salah.")
-                    return
+                   
                 
                 
 
