@@ -44,6 +44,7 @@ def login_page():
                 if not profile.data:
                     st.error("Username tidak ditemukan")
                     
+                    
 
                 email = profile.data[0]["email"]
                 auth = supabase.auth.sign_in_with_password({

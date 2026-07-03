@@ -89,10 +89,10 @@ ICON_MAP = {
 }
 
 SEVERITY_DESC = {
-    "tinggi": "Segera lakukan penanganan",
-    "sedang": "Perlu dipantau",
-    "rendah": "Tidak terlalu mengkhawatirkan",
-    "aman": "Tanaman dalam kondisi baik",
+    "tinggi": "Hasil deteksi menunjukkan tingkat keyakinan yang tinggi.",
+    "sedang": "Hasil deteksi menunjukkan tingkat keyakinan yang sedang",
+    "rendah": "Hasil deteksi menunjukkan tingkat keyakinan yang rendah",
+    "aman": "Tidak ditemukan hama pada gambar yang diperiksa, artinya tanaman dalam kondisi baik",
 }
 
 def get_severity(conf):
@@ -110,7 +110,7 @@ st.markdown("""
 <div class="feature-icon">📷</div>
 <div class="feature-title">Upload Gambar Daun</div>
 <div class="feature-desc">
-Upload gambar daun buncis muda untuk mendeteksi hama belalang dan ulat menggunakan model <span class="highlight">YOLOv8</span>.
+Upload gambar daun buncis muda untuk mendeteksi kerusakan akibat serangan hama  menggunakan model <span class="highlight">YOLOv8</span>.
 </div>
 </div>
 """, unsafe_allow_html=True)
@@ -192,6 +192,7 @@ if uploaded_file is not None:
 
         if boxes is not None and len(boxes) > 0:
             st.markdown('<div class="result-title">📋 Detail Deteksi</div>', unsafe_allow_html=True)
+            st.caption("Kategori Tinggi, Sedang, dan Rendah menunjukkan tingkat keyakinan model terhadap hasil deteksi, bukan tingkat kerusakan daun.")
 
             for box in boxes:
                 cls_id = int(box.cls[0])
@@ -250,7 +251,7 @@ if uploaded_file is not None:
                     Tidak ditemukan hama belalang maupun ulat pada gambar yang diperiksa.
         </div>
         <div class="healthy-conf">
-                    Confidence: {healthy_conf:.1f}%
+                    Tingkat keyakinan model: {healthy_conf:.1f}%
         </div>
     </div>
             """, unsafe_allow_html=True)
