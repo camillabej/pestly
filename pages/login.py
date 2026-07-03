@@ -39,6 +39,7 @@ def login_page():
                 if not username or not password:
                     st.session_state["login_error"] = "Username dan password harus diisi."
                     return
+        
                 profile = (
                     supabase.table("profiles")
                     .select("*")
@@ -59,7 +60,7 @@ def login_page():
                 except Exception:
                     st.session_state["login_error"] = "Password yang Anda masukkan salah."
                     return
-                
+                                    
                 
 
                 st.session_state["logged_in"] = True
@@ -73,7 +74,8 @@ def login_page():
                 st.success("Login berhasil")
                 st.switch_page("pages/home.py")
                 
-        
+        if st.session_state["login_error"]:
+            st.error(st.session_state["login_error"])
         oauth_response = supabase.auth.sign_in_with_oauth(
             {
                 "provider": "google"
