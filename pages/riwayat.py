@@ -153,10 +153,10 @@ if not riwayat:
     """, unsafe_allow_html=True)
 else:
     SEVERITY_DESC = {
-        "tinggi": "Segera lakukan penanganan",
-        "sedang": "Perlu dipantau",
-        "rendah": "Tidak terlalu mengkhawatirkan",
-        "aman": "Tanaman dalam kondisi baik"
+        "tinggi": "Hasil deteksi menunjukkan tingkat keyakinan yang tinggi.",
+        "sedang": "Hasil deteksi menunjukkan tingkat keyakinan yang sedang",
+        "rendah": "Hasil deteksi menunjukkan tingkat keyakinan yang rendah",
+        "aman": "Tidak ditemukan hama pada gambar yang diperiksa, artinya tanaman dalam kondisi baik",
     }
 
     severity_order = {"tinggi": 3, "sedang": 2, "rendah": 1, "aman": 0}
