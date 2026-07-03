@@ -215,7 +215,7 @@ else:
             <div class="history-card-conf">{conf_avg*100:.1f}%</div>
         </div>
     </div>
-    <div class="history-card-meta">🗓️ {r[tanggal_format]}</div>
+    <div class="history-card-meta">🗓️ {tanggal_format}</div>
     <div class="history-card-meta">📊 Tingkat : <span style="background:rgba(239,68,68,.15);color:{badge_color};padding:2px 10px;border-radius:999px;font-weight:700;">{hama_tertinggi["severity_label"]}</span></div>
 </div>
                     """, unsafe_allow_html=True)
