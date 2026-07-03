@@ -20,6 +20,8 @@ def load_css():
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 load_css()
+if "login_error" not in st.session_state:
+    st.session_state["login_error"] = ""
 
 if st.button("⬅️ Kembali"):
     st.switch_page("main.py")
@@ -35,7 +37,7 @@ def login_page():
 
         if st.button("🚀 Login", use_container_width=True):
                 if not username or not password:
-                    st.warning("Username dan password harus diisi.")
+                    st.session_state["login_error"] = "Username dan password harus diisi."
                     return
                 profile = (
                     supabase.table("profiles")
@@ -44,7 +46,7 @@ def login_page():
                     .execute()
                 )
                 if not profile.data:
-                    st.error("Username tidak ditemukan.")
+                    st.session_state["login_error"] = "Username tidak ditemukan."
                     return
                    
                 email = profile.data[0]["email"]
@@ -55,7 +57,7 @@ def login_page():
                         "password": password
                     })
                 except Exception:
-                    st.error("Password yang Anda masukkan salah.")
+                    st.session_state["login_error"] = "Password yang Anda masukkan salah."
                     return
                 
                 
