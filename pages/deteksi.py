@@ -275,7 +275,7 @@ if uploaded_file is not None:
             result_small.save(buf, format="JPEG", quality=75)
 
             simpan_riwayat(
-                tanggal=datetime.now().strftime("%d-%m-%Y %H:%M"),
+                tanggal=datetime.now(),
                 nama_file=nama_file,
                 image_bytes=buf.getvalue(),
                 deteksi_list=deteksi_list,

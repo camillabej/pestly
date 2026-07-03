@@ -1,5 +1,6 @@
 import streamlit as st
 import io
+from datetime import datetime
 from PIL import Image
 from database import ambil_riwayat, hapus_riwayat
 from auth import restore_login
@@ -200,6 +201,9 @@ else:
                 conf_avg = sum(d["conf"] for d in deteksi_tampil) / len(deteksi_tampil)
                 hama_tertinggi = max(deteksi_tampil, key=lambda d: severity_order.get(d["severity_class"], 0))
                 badge_color = badge_color_map.get(hama_tertinggi["severity_class"], "#9ca3af")
+                
+                tanggal = datetime.fromisoformat(r["tanggal"])
+                tanggal_format = tanggal.strftime("%d-%m-%Y %H:%M")
 
                 with cols[col_idx]:
                     st.markdown(f"""
@@ -211,7 +215,7 @@ else:
             <div class="history-card-conf">{conf_avg*100:.1f}%</div>
         </div>
     </div>
-    <div class="history-card-meta">🗓️ {r['tanggal']}</div>
+    <div class="history-card-meta">🗓️ {r[tanggal_format]}</div>
     <div class="history-card-meta">📊 Tingkat : <span style="background:rgba(239,68,68,.15);color:{badge_color};padding:2px 10px;border-radius:999px;font-weight:700;">{hama_tertinggi["severity_label"]}</span></div>
 </div>
                     """, unsafe_allow_html=True)
