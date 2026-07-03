@@ -5,6 +5,7 @@ import uuid
 from ultralytics import YOLO
 from PIL import Image
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from database import init_db, simpan_riwayat
 from supabase_client import supabase
 from auth import restore_login
@@ -273,9 +274,9 @@ if uploaded_file is not None:
             result_small = result_img.copy()
             result_small.thumbnail((640, 640))
             result_small.save(buf, format="JPEG", quality=75)
-
+            
             simpan_riwayat(
-                tanggal=datetime.now().isoformat(),
+                tanggal=datetime.now(ZoneInfo("Asia/Jakarta")).replace(tzinfo=None).isoformat(),
                 nama_file=nama_file,
                 image_bytes=buf.getvalue(),
                 deteksi_list=deteksi_list,

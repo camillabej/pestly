@@ -89,12 +89,15 @@ if not r:
 # HEADER
 st.title("📋 Detail Deteksi")
 
-tanggal = datetime.fromisoformat(r["tanggal"])
+# Format tanggal
+if isinstance(r["tanggal"], str):
+    tanggal = datetime.fromisoformat(r["tanggal"])
+else:
+    tanggal = r["tanggal"]
+
 tanggal_format = tanggal.strftime("%d-%m-%Y %H:%M")
 
-st.markdown(
-    f"🗓️ {tanggal_format}"
-)
+st.markdown(f"🗓️ {tanggal_format}")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
