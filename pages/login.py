@@ -34,6 +34,7 @@ def login_page():
         password = st.text_input("Password", type="password")
 
         if st.button("🚀 Login", use_container_width=True):
+                #cek username di database
                 profile = (
                     supabase.table("profiles")
                     .select("*")
@@ -43,30 +44,27 @@ def login_page():
                 if not profile.data:
                     st.error("Username tidak ditemukan.")
                    
-                   
-                email = profile.data[0]["email"]
+                else:
+                    email = profile.data[0]["email"]
                 
-                try:
-                    auth = supabase.auth.sign_in_with_password({
-                        "email": email,
-                        "password": password
-                    })
-                except Exception:
-                    st.error("Password yang Anda masukkan salah.")
-                   
-                
-                
-
-                st.session_state["logged_in"] = True
-                st.session_state["user"] = auth.user
-                st.session_state["user_id"] = auth.user.id
-                st.session_state["username"] = username
-                st.session_state["access_token"] = auth.session.access_token
-                st.session_state["refresh_token"] = auth.session.refresh_token
+                    try:
+                        auth = supabase.auth.sign_in_with_password({
+                            "email": email,
+                            "password": password
+                        })
+                        #login berhasil, simpan session ke session_state
+                        st.session_state["logged_in"] = True
+                        st.session_state["user"] = auth.user
+                        st.session_state["user_id"] = auth.user.id
+                        st.session_state["username"] = username
+                        st.session_state["access_token"] = auth.session.access_token
+                        st.session_state["refresh_token"] = auth.session.refresh_token
 
 
-                st.success("Login berhasil")
-                st.switch_page("pages/home.py")
+                        st.success("Login berhasil")
+                        st.switch_page("pages/home.py")
+                    except Exception:
+                        st.error("Password yang Anda masukkan salah.")
                 
         
         oauth_response = supabase.auth.sign_in_with_oauth(
