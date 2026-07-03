@@ -1,5 +1,6 @@
 
 import streamlit as st
+from datetime import datetime
 from database import hapus_riwayat
 from auth import restore_login
 
@@ -88,8 +89,11 @@ if not r:
 # HEADER
 st.title("📋 Detail Deteksi")
 
+tanggal = datetime.fromisoformat(r["tanggal"])
+tanggal_format = tanggal.strftime("%d-%m-%Y %H:%M")
+
 st.markdown(
-    f"🗓️ {r['tanggal']}"
+    f"🗓️ {tanggal_format}"
 )
 
 st.markdown("<br>", unsafe_allow_html=True)
