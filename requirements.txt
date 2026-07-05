@@ -1,9 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 streamlit
-ultralytics
 torch
 torchvision
+ultralytics
 numpy
 pillow
 opencv-python-headless==4.10.0.84
 supabase
-#streamlit-local-storage
