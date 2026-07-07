@@ -3,8 +3,6 @@ import streamlit as st
 from supabase_client import supabase
 from auth import restore_login
 from components import konfirmasi_logout
-from streamlit_option_menu import option_menu
-
 
 st.set_page_config(
     page_title="Dashboard Pestly",
