@@ -9,6 +9,7 @@ from zoneinfo import ZoneInfo
 from database import init_db, simpan_riwayat
 from supabase_client import supabase
 from auth import restore_login
+from components import konfirmasi_logout
 
 st.set_page_config(
     page_title="Deteksi Hama - pestly",
@@ -50,7 +51,8 @@ with st.sidebar:
     st.page_link("pages/profil.py", label="Profil", icon="👤")
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-    st.page_link("pages/logout.py", label="Logout", icon="🚪")
+    if st.button("🚪 Logout", use_container_width=True):
+        konfirmasi_logout()
 
 
 # PROTEKSI HALAMAN

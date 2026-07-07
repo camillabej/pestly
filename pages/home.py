@@ -39,7 +39,8 @@ with st.sidebar:
     st.page_link("pages/profil.py", label="Profil", icon="👤")
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-    st.page_link("pages/logout.py", label="Logout", icon="🚪")
+    if st.button("🚪 Logout", use_container_width=True):
+        konfirmasi_logout()
             
 #HEADER
 st.title("🏠 Dashboard Pestly")

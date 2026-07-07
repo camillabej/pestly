@@ -4,6 +4,7 @@ from datetime import datetime
 from PIL import Image
 from database import ambil_riwayat, hapus_riwayat
 from auth import restore_login
+from components import konfirmasi_logout
 
 
 st.set_page_config(
@@ -50,7 +51,8 @@ with st.sidebar:
     st.page_link("pages/profil.py", label="Profil", icon="👤")
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-    st.page_link("pages/logout.py", label="Logout", icon="🚪")
+    if st.button("🚪 Logout", use_container_width=True):
+        konfirmasi_logout()
 
 # HEADER
 col1, col2 = st.columns([8, 1])
