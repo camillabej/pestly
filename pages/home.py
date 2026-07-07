@@ -23,6 +23,11 @@ def load_css():
 
 load_css()
 
+# PROTEKSI HALAMAN
+if not st.session_state.get("logged_in"):
+    st.switch_page("pages/login.py")
+    st.stop()
+    
 # SIDEBAR
 with st.sidebar:
     st.markdown("""
