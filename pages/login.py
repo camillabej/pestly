@@ -78,17 +78,18 @@ def login_page():
             oauth_response.url,
             use_container_width=True
         )
+        st.page_link(
+            "pages/lupa_password.py",
+            label="🔑 Lupa Password?",
+            icon=None
+        )
 
         st.page_link(
             "pages/register.py",
             label="Belum punya akun? Registrasi sekarang",
             icon=None
         )
-        st.page_link(
-            "pages/lupa_password.py",
-            label="🔑 Lupa Password?",
-            icon=None
-        )
+
 login_page()
     
 
