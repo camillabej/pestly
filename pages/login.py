@@ -80,7 +80,7 @@ def login_page():
         )
         st.page_link(
             "pages/lupa_password.py",
-            label="🔑 Lupa Password?",
+            label="Lupa Password?",
             icon=None
         )
 
