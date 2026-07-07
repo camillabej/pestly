@@ -3,6 +3,8 @@ import streamlit as st
 from supabase_client import supabase
 from auth import restore_login
 from components import konfirmasi_logout
+from streamlit_option_menu import option_menu
+
 
 st.set_page_config(
     page_title="Dashboard Pestly",
@@ -23,27 +25,23 @@ def load_css():
 
 load_css()
 
-st.markdown('''
-<style>
-[data-testid="stSidebarNav"] { display: none; }
-</style>
-''', unsafe_allow_html=True)
-
+# SIDEBAR
 with st.sidebar:
-    st.markdown('''
+    st.markdown("""
     <div class="sidebar-logo">🫛</div>
     <div class="sidebar-title">Pestly</div>
     <div class="sidebar-subtitle">AI Pest Detection</div>
-    ''', unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
     st.markdown("<br>", unsafe_allow_html=True)
+
     st.page_link("pages/home.py", label="Dashboard", icon="🏠")
     st.page_link("pages/deteksi.py", label="Deteksi Hama", icon="📸")
     st.page_link("pages/riwayat.py", label="Riwayat Deteksi", icon="📋")
     st.page_link("pages/profil.py", label="Profil", icon="👤")
+
     st.markdown("<br><br>", unsafe_allow_html=True)
-    if st.button("🚪 Logout", use_container_width=True):
-        konfirmasi_logout()
-    
+    st.page_link("pages/logout.py", label="Logout", icon="🚪")
             
 #HEADER
 st.title("🏠 Dashboard Pestly")

@@ -54,7 +54,6 @@ with st.sidebar:
     if st.button("🚪 Logout", use_container_width=True):
         konfirmasi_logout()
 
-
 # HEADER
 st.title("👤 Profil")
 st.markdown("<br>", unsafe_allow_html=True)
