@@ -9,6 +9,25 @@ st.set_page_config(
 
 st.title("🔑 Lupa Password")
 
+#proteksi halaman
+if not st.session_state.get("logged_in"):
+    st.switch_page("pages/login.py")
+    st.stop()
+
+def load_css():
+    with open("styles/home.css", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_css()
+
+st.markdown("""
+<style>
+[data-testid="stSidebarNav"] {
+    display: none;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.write(
     "Masukkan email yang terdaftar. Kami akan mengirimkan tautan untuk mengatur ulang password."
 )
