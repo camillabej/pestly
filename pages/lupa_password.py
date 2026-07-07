@@ -38,7 +38,9 @@ if st.button("📩 Kirim Link Reset", use_container_width=True):
         st.warning("Silakan masukkan email.")
     else:
         try:
-            supabase.auth.reset_password_email(email)
+            supabase.auth.reset_password_email(
+                email,
+                redirect_to="https://pestly-deteksi-hama.streamlit.app/reset_password")
 
             st.success(
                 "✅ Link reset password berhasil dikirim. Silakan cek email Anda."
