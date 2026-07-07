@@ -98,7 +98,17 @@ with col2:
                     st.error("Username sudah digunakan!")
                     st.stop()
                     
+                cek_email = (
+                    supabase.table("profiles")
+                    .select("id")
+                    .eq("email", email)
+                    .execute()
+                )
 
+                if cek_email.data:
+                    st.error("Email sudah digunakan!")
+                    st.stop()
+                    
                 # BUAT USER DI SUPABASE AUTH
                 auth_response = supabase.auth.sign_up({
                     "email": email,
