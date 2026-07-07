@@ -4,6 +4,7 @@ from datetime import datetime
 from PIL import Image
 from database import ambil_riwayat, hapus_riwayat
 from auth import restore_login
+from components import konfirmasi_logout
 
 
 
@@ -51,21 +52,12 @@ with st.sidebar:
     st.page_link("pages/profil.py", label="Profil", icon="👤")
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-    st.page_link("pages/logout.py", label="Logout", icon="🚪")
-
-
+    if st.button("🚪 Logout", use_container_width=True):
+        konfirmasi_logout()
 
 
 # HEADER
-col1, col2 = st.columns([8, 1])
-with col1:
-    st.title("📋 Riwayat Deteksi")
-with col2:
-    if st.session_state.get("logged_in", False):
-        if st.button("🚪 Logout"):
-            st.session_state.clear()
-            st.switch_page("main.py")
-
+st.title("📋 Riwayat Deteksi")
 st.markdown("<br>", unsafe_allow_html=True)
 
 

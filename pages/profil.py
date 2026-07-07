@@ -1,5 +1,7 @@
 import streamlit as st
 from auth import restore_login
+from components import konfirmasi_logout
+
 
 st.set_page_config(
     page_title="Profil - Pestly",
@@ -49,29 +51,23 @@ with st.sidebar:
     st.page_link("pages/profil.py", label="Profil", icon="👤")
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-    st.page_link("pages/logout.py", label="Logout", icon="🚪")
+    if st.button("🚪 Logout", use_container_width=True):
+        konfirmasi_logout()
 
 
-
-# ==========================
 # HEADER
-# ==========================
-
 st.title("👤 Profil")
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ==========================
 # AMBIL DATA USER
-# ==========================
 nama = st.session_state.get("username", "User")
 email = st.session_state.get("email", "Tidak tersedia")
 foto = None
 
 inisial = "".join([w[0].upper() for w in nama.split()[:2]]) if nama else "U"
 
-# ==========================
+
 # CARD PROFIL
-# ==========================
 if foto:
     avatar_html = f'<img src="{foto}" class="profile-avatar-img">'
 else:
@@ -91,6 +87,3 @@ st.markdown(f"""
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-if st.button("🚪 Logout", use_container_width=True, key="logout_bottom"):
-    st.session_state.clear()
-    st.switch_page("main.py")

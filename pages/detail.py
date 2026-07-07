@@ -3,6 +3,7 @@ import streamlit as st
 from datetime import datetime
 from database import hapus_riwayat
 from auth import restore_login
+from components import konfirmasi_logout
 
 
 st.set_page_config(
@@ -42,37 +43,15 @@ with st.sidebar:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    st.page_link(
-        "pages/home.py",
-        label="Dashboard",
-        icon="🏠"
-    )
-
-    st.page_link(
-        "pages/deteksi.py",
-        label="Deteksi Hama",
-        icon="📸"
-    )
-
-    st.page_link(
-        "pages/riwayat.py",
-        label="Riwayat Deteksi",
-        icon="📋"
-    )
-
-    st.page_link(
-        "pages/profil.py",
-        label="Profil",
-        icon="👤"
-    )
+    st.page_link("pages/home.py",label="Dashboard",icon="🏠")
+    st.page_link("pages/deteksi.py",label="Deteksi Hama",icon="📸")
+    st.page_link("pages/riwayat.py",label="Riwayat Deteksi",icon="📋")
+    st.page_link("pages/profil.py",label="Profil",icon="👤")
 
     st.markdown("<br><br>", unsafe_allow_html=True)
+    if st.button("🚪 Logout", use_container_width=True):
+        konfirmasi_logout()
 
-    st.page_link(
-        "pages/logout.py",
-        label="Logout",
-        icon="🚪"
-    )
 
 # PROTEKSI HALAMAN
 if not st.session_state.get("logged_in", False):

@@ -2,6 +2,7 @@
 import streamlit as st
 from supabase_client import supabase
 from auth import restore_login
+from components import konfirmasi_logout
 
 st.set_page_config(
     page_title="Dashboard Pestly",
@@ -40,32 +41,12 @@ with st.sidebar:
     st.page_link("pages/riwayat.py", label="Riwayat Deteksi", icon="📋")
     st.page_link("pages/profil.py", label="Profil", icon="👤")
     st.markdown("<br><br>", unsafe_allow_html=True)
-    st.page_link("pages/logout.py", label="Logout", icon="🚪")
+    if st.button("🚪 Logout", use_container_width=True):
+        konfirmasi_logout()
     
             
-# Fungsi dialog logout
-@st.dialog("Konfirmasi Logout")
-def konfirmasi_logout():
-    st.write("Apakah Anda yakin ingin keluar dari akun?")
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        if st.button("Ya", use_container_width=True):
-            st.switch_page("pages/logout.py")
-
-    with col2:
-        if st.button("Batal", use_container_width=True):
-            st.rerun()
-            
-col1, col2 = st.columns([8, 1])
-with col1:
-    st.title("🏠 Dashboard Pestly")
-with col2:
-    if st.session_state.get("logged_in", False):
-        if st.button("🚪 Logout"):
-            konfirmasi_logout()
-
+#HEADER
+st.title("🏠 Dashboard Pestly")
 nama = st.session_state.get("username", "User")
 
 st.markdown(f'''
