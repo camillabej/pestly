@@ -113,7 +113,10 @@ with col2:
                 auth_response = supabase.auth.sign_up({
                     "email": email,
                     "password": password
-                })
+                    "options": {
+                            "email_redirect_to": "https://pestly-deteksi-hama.streamlit.app/pages/login"
+                        }
+                    })
                 user_id = auth_response.user.id
 
                 # SIMPAN PROFILE
