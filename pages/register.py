@@ -1,6 +1,7 @@
 
 import streamlit as st
 import auth
+import re
 from supabase_client import supabase
 
 st.set_page_config(
@@ -79,7 +80,9 @@ with col2:
 
         elif password != konfirmasi:
             st.error("Password tidak sama!")
-
+        elif not re.match(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$", email):
+            st.error("Format email tidak valid!")
+            
         else:
 
             try:
@@ -95,17 +98,6 @@ with col2:
                     st.error("Username sudah digunakan!")
                     st.stop()
                     
-
-                cek_user = (
-                    supabase.table("profiles")
-                    .select("id")
-                    .eq("username", username)
-                    .execute()
-                )
-
-                if cek_user.data:
-                    st.error("Username sudah digunakan!")
-                    st.stop()
 
                 # BUAT USER DI SUPABASE AUTH
                 auth_response = supabase.auth.sign_up({
@@ -123,15 +115,23 @@ with col2:
                 }).execute()
 
                 st.success(
-                    "Registrasi berhasil! Silakan login."
+                    "Registrasi berhasil! Silakan cek email Anda untuk mengonfirmasi akun sebelum login."
                 )
 
             except Exception as e:
-                st.exception(e)
+                    error = str(e)
+                    if "Email address" in error:
+                        st.error("Email yang dimasukkan tidak valid.")
+
+                    elif "User already registered" in error:
+                        st.error("Email sudah terdaftar.")
+
+                    else:
+                        st.error("Registrasi gagal. Silakan coba lagi.")
 
 
-    st.markdown("<br>", unsafe_allow_html=True)
-        
+                    st.markdown("<br>", unsafe_allow_html=True)
+                        
     st.page_link(
     "pages/login.py",
     label="Sudah punya akun?",
