@@ -84,6 +84,11 @@ def login_page():
             label="Belum punya akun? Registrasi sekarang",
             icon=None
         )
+        st.page_link(
+            "pages/lupa_password.py",
+            label="🔑 Lupa Password?",
+            icon=None
+        )
 login_page()
     
 
