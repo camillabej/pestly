@@ -9,11 +9,16 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-[data-testid="stSidebarNav"] {
-    display: none;
-}
+section[data-testid="stSidebar"]{ display:none; }
+[data-testid="stSidebarNav"]{ display:none; }
 </style>
 """, unsafe_allow_html=True)
+
+def load_css():
+    with open("styles/login.css", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_css()
 
 st.title("🔑 Lupa Password")
 
