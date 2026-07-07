@@ -41,6 +41,8 @@ with st.sidebar:
     st.page_link("pages/profil.py", label="Profil", icon="👤")
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.page_link("pages/logout.py", label="Logout", icon="🚪")
+    
+
 
 col1, col2 = st.columns([8, 1])
 with col1:
@@ -50,6 +52,21 @@ with col2:
         if st.button("🚪 Logout"):
             st.session_state.clear()
             st.switch_page("main.py")
+            
+# Fungsi dialog logout
+@st.dialog("Konfirmasi Logout")
+def konfirmasi_logout():
+    st.write("Apakah Anda yakin ingin keluar dari akun?")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button("Ya", use_container_width=True):
+            st.switch_page("pages/logout.py")
+
+    with col2:
+        if st.button("Batal", use_container_width=True):
+            st.rerun()
 
 nama = st.session_state.get("username", "User")
 
