@@ -127,5 +127,5 @@ st.divider()
 
 
 # Footer
-st.caption("© 2026 Camilla")
+st.caption("© 2026 Camilla Zahra Asmat. All rights reserved.")
 
