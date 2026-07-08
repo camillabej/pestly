@@ -238,29 +238,9 @@ if uploaded_file is not None:
             st.markdown(f'<div class="detail-card">{items_html}</div>', unsafe_allow_html=True)
 
         else:
-            healthy_conf = 95.0
-
-            deteksi_list = [{
-                "label": "Sehat",
-                "conf": healthy_conf / 100,
-                "severity_label": "Aman",
-                "severity_class": "aman"
-            }]
-
-            st.markdown(f"""
-<div class="healthy-card">
-    <div class="healthy-icon">🌿</div>
-    <div class="healthy-title">Daun Sehat</div>
-        <div class="healthy-desc">
-                    Tidak ditemukan hama belalang maupun ulat pada gambar yang diperiksa.
-        </div>
-        <div class="healthy-conf">
-                    Tingkat keyakinan model: {healthy_conf:.1f}%
-        </div>
-    </div>
-            """, unsafe_allow_html=True)
-
-        
+            st.error("❌ Gambar yang diunggah bukan merupakan daun buncis atau objek tidak dapat dikenali. Silakan unggah gambar daun buncis yang jelas.")
+            st.stop()
+            
         # SIMPAN KE DATABASE
         
         image_hash = hash(uploaded_file.getvalue())
