@@ -99,7 +99,7 @@ with col1:
     <div class="hero-section">
 
     <h1>
-    Sistem Deteksi Hama Tanaman Daun Buncis
+    Sistem Deteksi Kerusakan Tanaman Daun Buncis Muda
     </h1>
 
     <div class="hero-subtitle">
@@ -107,7 +107,7 @@ with col1:
     </div>
 
     <div class="hero-desc">
-    Deteksi hama pada tanaman daun buncis secara cepat dan akurat
+    Deteksi kerusakan pada tanaman daun buncis akibat serangan hama secara cepat dan akurat
     menggunakan teknologi Computer Vision dan Deep Learning.
     </div>
 
