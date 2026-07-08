@@ -62,14 +62,8 @@ if not st.session_state.get("logged_in"):
 
 
 # HEADER
-col1, col2 = st.columns([8, 1])
-with col1:
-    st.title("📸 Deteksi Hama")
-with col2:
-    if st.session_state.get("logged_in", False):
-        if st.button("🚪 Logout"):
-            st.session_state.clear()
-            st.switch_page("main.py")
+st.title("📸 Deteksi Hama")
+
 
 st.markdown("<br>", unsafe_allow_html=True)
 

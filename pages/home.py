@@ -51,8 +51,16 @@ with st.sidebar:
         konfirmasi_logout()
             
 #HEADER
-st.title("🏠 Dashboard Pestly")
-nama = st.session_state.get("username", "User")
+col1, col2 = st.columns([8, 1])
+with col1:
+    st.title("🏠 Dashboard Pestly")
+    nama = st.session_state.get("username", "User")
+with col2:
+    if st.session_state.get("logged_in", False):
+        if st.button("🚪 Logout"):
+            st.session_state.clear()
+            st.switch_page("main.py")
+
 
 st.markdown(f'''
 <div class="welcome-banner">
