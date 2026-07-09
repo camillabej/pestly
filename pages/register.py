@@ -131,18 +131,18 @@ with col2:
                 )
 
             except Exception as e:
-                    st.exception(e)
-                    #if "Email address" in error:
-                     #   st.error("Email yang dimasukkan tidak valid.")
+                    error = str(e)
+                    if "Email address" in error:
+                        st.error("Email yang dimasukkan tidak valid.")
 
-                    #elif "User already registered" in error:
-                     #   st.error("Email sudah terdaftar.")
+                    elif "User already registered" in error:
+                        st.error("Email sudah terdaftar.")
 
-                    #else:
-                     #   st.error("Registrasi gagal. Silakan coba lagi.")
+                    else:
+                       st.error("Registrasi gagal. Silakan coba lagi.")
 
 
-                    #st.markdown("<br>", unsafe_allow_html=True)
+                    st.markdown("<br>", unsafe_allow_html=True)
                         
     st.page_link(
     "pages/login.py",
