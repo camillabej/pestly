@@ -87,27 +87,27 @@ with col2:
 
             try:
 
-                cek_user = (
-                    supabase.table("profiles")
-                    .select("id")
-                    .eq("username", username)
-                    .execute()
-                )
+                #cek_user = (
+                    #supabase.table("profiles")
+                    #.select("id")
+                    #.eq("username", username)
+                    #.execute()
+                #)
 
-                if cek_user.data:
-                    st.error("Username sudah digunakan!")
-                    st.stop()
+                #if cek_user.data:
+                   # st.error("Username sudah digunakan!")
+                    #st.stop()
                     
-                cek_email = (
-                    supabase.table("profiles")
-                    .select("id")
-                    .eq("email", email)
-                    .execute()
-                )
+                #cek_email = (
+                 #   supabase.table("profiles")
+                  #  .select("id")
+                   # .eq("email", email)
+                    #.execute()
+                #)
 
-                if cek_email.data:
-                    st.error("Email sudah digunakan!")
-                    st.stop()
+                #if cek_email.data:
+                 #   st.error("Email sudah digunakan!")
+                  #  st.stop()
                     
                 # BUAT USER DI SUPABASE AUTH
                 auth_response = supabase.auth.sign_up({
@@ -117,34 +117,35 @@ with col2:
                             "email_redirect_to": "https://pestly-deteksi-hama.streamlit.app/pages/login"
                         }
                 })
+                st.write(auth_response)
                 
-                user_id = auth_response.user.id
+                #user_id = auth_response.user.id
 
                 # SIMPAN PROFILE
-                supabase.table("profiles").insert({
-                    "user_id": user_id,
-                    "nama": nama,
-                    "username": username,
-                    "email": email
-                }).execute()
+                #supabase.table("profiles").insert({
+                 #   "user_id": user_id,
+                  #  "nama": nama,
+                   # "username": username,
+                    #"email": email
+                #}).execute()
 
                 st.success(
                     "Registrasi berhasil! Silakan cek email Anda untuk mengonfirmasi akun sebelum login."
                 )
 
             except Exception as e:
-                    error = str(e)
-                    if "Email address" in error:
-                        st.error("Email yang dimasukkan tidak valid.")
+                    st.exception(e)
+                    #if "Email address" in error:
+                     #   st.error("Email yang dimasukkan tidak valid.")
 
-                    elif "User already registered" in error:
-                        st.error("Email sudah terdaftar.")
+                    #elif "User already registered" in error:
+                     #   st.error("Email sudah terdaftar.")
 
-                    else:
-                        st.error("Registrasi gagal. Silakan coba lagi.")
+                    #else:
+                     #   st.error("Registrasi gagal. Silakan coba lagi.")
 
 
-                    st.markdown("<br>", unsafe_allow_html=True)
+                    #st.markdown("<br>", unsafe_allow_html=True)
                         
     st.page_link(
     "pages/login.py",
