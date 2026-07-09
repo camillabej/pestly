@@ -130,7 +130,7 @@ with col2:
                 #}).execute()
 
                 st.success(
-                    "Registrasi berhasil! Silakan cek email Anda untuk mengonfirmasi akun sebelum login."
+                    "Registrasi berhasil! Silakan login menggunakan akun yang telah dibuat."
                 )
 
             except Exception as e:
