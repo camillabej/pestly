@@ -57,8 +57,7 @@ def login_page():
                         st.session_state["user"] = auth.user
                         st.session_state["user_id"] = auth.user.id
                         st.session_state["username"] = username
-                        st.session_state["access_token"] = auth.session.access_token
-                        st.session_state["refresh_token"] = auth.session.refresh_token
+
 
 
                         st.success("Login berhasil")
