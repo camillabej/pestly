@@ -114,7 +114,7 @@ Upload gambar daun buncis muda untuk mendeteksi kerusakan akibat serangan hama  
 """, unsafe_allow_html=True)
 
 
-# MEMILIH SUMBER GAMBAR YANG DIGUNAKAN
+# memilih sumber gambar: upload atau kamera
 if "source_mode" not in st.session_state:
     st.session_state["source_mode"] = None
 
@@ -150,8 +150,8 @@ if uploaded_file is not None:
 
     # Preview gambar input
     buf_prev = io.BytesIO()
-    fmt = Image.open(uploaded_file).format or "JPEG"
-    if fmt not in ["JPEG", "PNG", "WEBP"]:
+    fmt = Image.open(uploaded_file).format
+    if fmt not in ("JPEG", "PNG"):
         fmt = "JPEG"
     image.save(buf_prev, format=fmt)
     img_b64 = base64.b64encode(buf_prev.getvalue()).decode()
@@ -176,7 +176,6 @@ if uploaded_file is not None:
 
 
         # MENJALANKAN DETEKSI
-
         with st.spinner("🔍 Mendeteksi hama..."):
             results = model.predict(image, conf=0.40, iou=0.35, agnostic_nms=True, verbose=False)
             result = results[0]
