@@ -96,7 +96,7 @@ SEVERITY_DESC = {
 def get_severity(conf):
     if conf >= 0.7:
         return "Tinggi", "tinggi"
-    elif conf >= 0.4:
+    elif conf >= 0.55:
         return "Sedang", "sedang"
     else:
         return "Rendah", "rendah"

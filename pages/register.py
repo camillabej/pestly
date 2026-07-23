@@ -109,7 +109,7 @@ with col2:
                     st.error("Email sudah digunakan!")
                     st.stop()
                     
-                # BUAT USER DI SUPABASE AUTH
+                #Membuat akun pengguna di Supabase Auth
                 auth_response = supabase.auth.sign_up({
                     "email": email,
                     "password": password,
@@ -118,7 +118,7 @@ with col2:
                 
                 user_id = auth_response.user.id
 
-                # SIMPAN PROFILE
+                # Menyimpan data pengguna ke tabel "profiles" di Supabase
                 supabase.table("profiles").insert({
                     "user_id": user_id,
                     "nama": nama,
