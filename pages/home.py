@@ -1,6 +1,4 @@
-﻿import supabase_client
-import streamlit as st
-from supabase_client import supabase
+﻿import streamlit as st
 from auth import restore_login
 from components import konfirmasi_logout
 
@@ -11,7 +9,6 @@ st.set_page_config(
 )
 
 restore_login()
-st.write(supabase.auth.get_session())
 
 #proteksi halaman
 if not st.session_state.get("logged_in"):

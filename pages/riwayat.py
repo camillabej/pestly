@@ -1,7 +1,5 @@
 import streamlit as st
-import io
 from datetime import datetime
-from PIL import Image
 from database import ambil_riwayat, hapus_riwayat
 from auth import restore_login
 from components import konfirmasi_logout
@@ -186,8 +184,7 @@ else:
         for row_start in range(0, len(riwayat_filtered), 2):
             cols = st.columns(2)
             for col_idx, (r, deteksi_tampil) in enumerate(riwayat_filtered[row_start:row_start+2]):
-                idx = riwayat.index(r)
-                hama_utama = deteksi_tampil[0]
+
                 icon_b64 = get_icon_base64()
                 nama_list = r["nama_file"]
                 conf_avg = sum(d["conf"] for d in deteksi_tampil) / len(deteksi_tampil)

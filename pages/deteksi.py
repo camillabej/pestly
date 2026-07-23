@@ -7,7 +7,6 @@ from PIL import Image
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from database import init_db, simpan_riwayat
-from supabase_client import supabase
 from auth import restore_login
 from components import konfirmasi_logout
 
