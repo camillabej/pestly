@@ -11,6 +11,7 @@ st.set_page_config(
 )
 
 restore_login()
+st.write(supabase.auth.get_session())
 
 #proteksi halaman
 if not st.session_state.get("logged_in"):
